@@ -225,6 +225,23 @@ if (reviewForm) {
   });
 }
 
+// Mobile menu toggle (niche/service pages with a hamburger button)
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+if (mobileMenuBtn && mobileMenu) {
+  mobileMenuBtn.addEventListener('click', () => {
+    const willOpen = mobileMenu.classList.contains('hidden');
+    mobileMenu.classList.toggle('hidden');
+    mobileMenuBtn.setAttribute('aria-expanded', String(willOpen));
+  });
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      mobileMenuBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
+
 // Back to top button
 const backToTop = document.getElementById('backToTop');
 if (backToTop) {

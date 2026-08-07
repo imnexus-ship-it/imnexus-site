@@ -98,7 +98,8 @@
   .navlinks a{color:#C7CAE6;font-size:14.5px;font-weight:500;transition:color .15s;}
   .navlinks a:hover, .navlinks a.active{color:#fff;}
   .navcta{display:flex;gap:10px;align-items:center;} .navcta .btn{padding:9px 16px;font-size:13px;}
-  @media(max-width:900px){.navlinks{display:none;} .navcta .btn-ghost{display:none;}}
+  .navtoggle{display:none;background:none;border:none;color:#fff;font-size:26px;cursor:pointer;}
+  @media(max-width:900px){.navlinks{display:none;} .navcta .btn-ghost{display:none;} .navtoggle{display:block;}}
 
   .pagehero{
     background:radial-gradient(ellipse 900px 500px at 78% -10%, rgba(255,90,31,.22), transparent 60%),
@@ -304,6 +305,7 @@
       <a class="btn btn-ghost" href="https://wa.me/233592750575" target="_blank" rel="noopener">WhatsApp Us</a>
       <a class="btn btn-primary" href="index.html#contact">Start Your Project</a>
     </div>
+    <button class="navtoggle" aria-label="Menu">☰</button>
   </div>
 </header>
 
@@ -524,6 +526,16 @@
 <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
 
 <script>
+  const navToggle = document.querySelector('.navtoggle');
+  const navLinksEl = document.querySelector('.navlinks');
+  if (navToggle && navLinksEl) {
+    navToggle.addEventListener('click', ()=>{
+      const open = navLinksEl.style.display === 'flex';
+      navLinksEl.style.display = open ? 'none' : 'flex';
+      navLinksEl.style.cssText = open ? '' : 'display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#0B1145;padding:20px 28px;gap:18px;border-bottom:1px solid rgba(255,255,255,.1);';
+    });
+  }
+
   const revealEls = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
