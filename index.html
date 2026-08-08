@@ -118,7 +118,7 @@
                linear-gradient(180deg,var(--navy-950),var(--navy-900) 55%, var(--navy-900));
     color:#fff;position:relative;overflow:hidden;padding:90px 0 60px;
   }
-  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center;}
+  .hero-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;}
   @media(max-width:960px){.hero-grid{grid-template-columns:1fr;}}
   .hero h1{font-size:clamp(34px,4.6vw,56px);color:#fff;margin:18px 0 20px;}
   .hero h1 span.accent-line{color:var(--orange-400);display:block;}
@@ -128,11 +128,13 @@
   .trustchip{display:flex;align-items:center;gap:7px;font-size:12.5px;color:#CFD2EE;background:rgba(255,255,255,.05);border:1px solid var(--line-dark);padding:7px 12px;border-radius:100px;}
   .trustchip::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold-400);}
 
-  /* Diagonal geometric hero visual */
+  /* Hero brand-shot visual: real product mockups on a clean white card */
   .hero-visual{position:relative;}
-  .hero-visual-lines{position:absolute;inset:-9%;z-index:0;overflow:visible;pointer-events:none;}
-  .hero-shot{position:relative;z-index:1;width:100%;height:auto;display:block;filter:drop-shadow(0 30px 60px rgba(0,0,0,.5));}
-  @media(max-width:960px){.hero-visual{max-width:480px;margin:0 auto;}}
+  .hero-shot{
+    width:116%;max-width:none;height:auto;display:block;
+    border-radius:22px;box-shadow:0 40px 80px -20px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.06);
+  }
+  @media(max-width:960px){.hero-visual{max-width:600px;margin:0 auto;}.hero-shot{width:100%;}}
 
   /* Feature strip under hero */
   .feature-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-dark);border:1px solid var(--line-dark);border-radius:16px;overflow:hidden;margin-top:56px;}
@@ -493,18 +495,7 @@
     </div>
 
     <div class="hero-visual reveal">
-      <svg class="hero-visual-lines" viewBox="0 0 700 700" aria-hidden="true">
-        <line x1="30" y1="600" x2="230" y2="40" stroke="var(--orange-500)" stroke-width="2.5" opacity="0.55"/>
-        <line x1="90" y1="650" x2="330" y2="10" stroke="var(--orange-400)" stroke-width="1.5" opacity="0.35"/>
-        <line x1="-30" y1="260" x2="180" y2="-30" stroke="#fff" stroke-width="1.5" opacity="0.22"/>
-        <line x1="520" y1="670" x2="710" y2="230" stroke="#fff" stroke-width="1.5" opacity="0.3"/>
-        <line x1="570" y1="700" x2="740" y2="330" stroke="var(--orange-500)" stroke-width="2.5" opacity="0.5"/>
-        <line x1="470" y1="650" x2="600" y2="380" stroke="var(--orange-400)" stroke-width="1" opacity="0.3"/>
-        <circle cx="640" cy="150" r="4" fill="var(--orange-400)" opacity="0.8"/>
-        <circle cx="60" cy="60" r="3" fill="#fff" opacity="0.45"/>
-        <circle cx="120" cy="640" r="3.5" fill="var(--orange-500)" opacity="0.5"/>
-      </svg>
-      <img class="hero-shot" src="images/shared/brand_cutout.webp" alt="IM NEXUS brand identity — website, business cards, mug and folder mockups">
+      <img class="hero-shot" src="images/shared/brand_white.webp" alt="IM NEXUS brand identity — website, business cards, mug and folder mockups">
     </div>
   </div>
 
